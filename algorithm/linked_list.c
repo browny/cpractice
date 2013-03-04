@@ -35,7 +35,7 @@ int main(int argc, char** argv)
 	Dump(list);
 	list = Delete(list,17);
 	Dump(list);
-	
+
 	return 0;
 }
 
@@ -45,11 +45,10 @@ Node* Add(Node* list, int data)
 	Node* new_n = (Node* )malloc(sizeof(Node));
 	new_n->data = data;
 	new_n->next = NULL;
-	
 
 	if(list == NULL)
 		list = new_n;
-	else {	
+	else {
 		temp = list;
 		while(temp->next != NULL)
 			temp = temp->next;
@@ -67,7 +66,7 @@ Node* Delete(Node* list, int data)
 		current = list;
 		list = current->next;
 		free(current);
-		printf("%3d has been deleted\n",data);	
+		printf("%3d has been deleted\n",data);
 	} else {
 		prev = list;
 		current = list->next;
@@ -81,9 +80,9 @@ Node* Delete(Node* list, int data)
 		if(current != NULL) {
 			prev->next = current->next;
 			free(current);
-			printf("%3d has been deleted\n",data);	
+			printf("%3d has been deleted\n",data);
 		} else
-			printf("%3d not in list\n",data);	
+			printf("%3d not in list\n",data);
 	}
 
 	return list;

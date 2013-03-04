@@ -21,7 +21,7 @@ int main(int argc, char** argv)
 void quick_sort(int num[],int start,int end)
 {
 	int i = 0,j = 0,pivot = 0;
-	
+
 	if(start < end) {
 		pivot = num[(start+end)/2];
 		i = start - 1;
