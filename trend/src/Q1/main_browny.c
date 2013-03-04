@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+void output(const char *pszInput)
+{
+	if (pszInput)
+		printf("Your parmeter is \"%s\"\r\n", pszInput);
+}
+
+int foo(const char *pszInput)
+{
+    //char *p = malloc(strlen(pszInput));
+    char *p = malloc(sizeof(pszInput));
+	if (p) {
+		strcpy(p, pszInput);
+		output(p);
+		return 0;
+	} else 
+		return -1;
+}
+
+int main(int argc, char *argv[])
+{
+	if (argc > 1) {
+		printf("sizeof(char): %zd \n", sizeof(char));  
+		printf("\"%s\" length: %zd sizeof: %zd \r\n", 
+				argv[1], strlen(argv[1]), sizeof(argv[1]));
+
+		return foo(argv[1]);
+	}
+
+	return 0;
+}
