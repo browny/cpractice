@@ -10,8 +10,7 @@ void output(const char *pszInput)
 
 int foo(const char *pszInput)
 {
-    //char *p = malloc(strlen(pszInput));
-    char *p = (char*)malloc(sizeof(pszInput));
+    char *p = malloc( (strlen(pszInput) +1) * sizeof(char));
 	if (p) {
 		strcpy(p, pszInput);
 		output(p);
@@ -24,9 +23,8 @@ int foo(const char *pszInput)
 int main(int argc, char *argv[])
 {
 	if (argc > 1) {
-		printf("sizeof(char): %zd \n", sizeof(char));  
-		printf("\"%s\" length: %zd sizeof: %zd \r\n", 
-				argv[1], strlen(argv[1]), sizeof(argv[1]));
+		printf("\"%s\" length: %zd \r\n", 
+				argv[1], strlen(argv[1]));
 
 		return foo(argv[1]);
 	}
