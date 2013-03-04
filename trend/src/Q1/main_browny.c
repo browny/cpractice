@@ -11,10 +11,11 @@ void output(const char *pszInput)
 int foo(const char *pszInput)
 {
     //char *p = malloc(strlen(pszInput));
-    char *p = malloc(sizeof(pszInput));
+    char *p = (char*)malloc(sizeof(pszInput));
 	if (p) {
 		strcpy(p, pszInput);
 		output(p);
+		free(p);
 		return 0;
 	} else 
 		return -1;
