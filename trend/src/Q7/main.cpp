@@ -1,3 +1,8 @@
+// Q7: Write an efficient program to remove duplicate values from a sorted
+// ascending array. For example, if input array is p = {1,1,3,5,8,8,10,10},
+// nItem = 8. After executing the function, function return 5, and p becomes
+// {1,3,5,8,10}
+
 #include <iostream>
 #include <string.h>
 //O(n)

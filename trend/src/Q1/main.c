@@ -1,3 +1,5 @@
+// Q1: Please identify the errors or what can be improved?
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

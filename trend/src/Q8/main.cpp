@@ -1,3 +1,8 @@
+// Q8: Check if the number is palindrome
+// do not use any C/C++ library such as strlen()
+
+// 利用反過來跟原數字相同的概念去解
+
 #include <iostream>
 
 using namespace std;
