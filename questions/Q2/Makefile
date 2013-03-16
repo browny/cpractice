@@ -1,5 +1,4 @@
-# Q1
-all:main.cpp
-	gcc main.cpp -o main
+all: main.cpp
+	g++ main.cpp -o main
 clean:
 	rm -f main
