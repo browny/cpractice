@@ -10,7 +10,7 @@ void output(const char *pszInput)
 
 int foo(const char *pszInput)
 {
-    char *p = malloc( (strlen(pszInput) +1) * sizeof(char));
+    char *p = malloc((strlen(pszInput) + 1) * sizeof(char));
 	if (p) {
 		strcpy(p, pszInput);
 		output(p);

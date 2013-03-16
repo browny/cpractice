@@ -1,6 +1,0 @@
-
-1. 三種排序 heap, merge, quick
-
-2. 二元樹和非二元樹
-
-3. C++ data structure: vector, list, map
