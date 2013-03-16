@@ -4,7 +4,7 @@
 
 int main(int argc, char** argv)
 {
-	//A
+	//A sizeof is an operator
 	//int a = new sizeof(int * 20);
 
 	//B

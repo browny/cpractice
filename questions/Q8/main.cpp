@@ -7,21 +7,22 @@
 
 using namespace std;
 
-int pal = 0;
-
-int isPal(int num)
+int reverseNum(int num)
 {
+	static int pal = 0;
 	if (num > 0) {
 		pal = (pal * 10) + num % 10;
-		isPal(num / 10);
+		reverseNum(num / 10);
 	}
 	return	pal;
 }
 
 int main(int argc, char** argv)
 {
-	int a = 123;
-	if (isPal(a) == a)
+	int a;
+	cout << "input a number" << endl;
+	cin >> a;
+	if (reverseNum(a) == a)
 		cout << "Yes" << endl;
 	else
 		cout << "No" << endl;
