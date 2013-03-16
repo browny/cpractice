@@ -28,11 +28,11 @@ void Dump(mynode *root)
 
 	if(root->left != NULL)
 		Dump(root->left);
-	
+
 	if(root->right != NULL)
 		Dump(root->right);
 }
-	
+
 mynode *Insert(int num, mynode *root)
 {
 	mynode *leaf = NULL, *current = NULL, *prev = NULL;

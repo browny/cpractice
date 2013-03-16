@@ -10,7 +10,7 @@ using namespace std;
 class A {
 public:
 	A() { cout << 1; }
-	/*virtual*/ 
+	/*virtual*/
 	~A() { cout << 2; }
 };
 

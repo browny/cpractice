@@ -1,4 +1,4 @@
-// Q2. What is wrong in the following program? 
+// Q2. What is wrong in the following program?
 
 #include <string.h>
 #include <iostream>

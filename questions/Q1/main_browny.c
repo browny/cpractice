@@ -16,14 +16,14 @@ int foo(const char *pszInput)
 		output(p);
 		free(p);
 		return 0;
-	} else 
+	} else
 		return -1;
 }
 
 int main(int argc, char *argv[])
 {
 	if (argc > 1) {
-		printf("\"%s\" length: %zd \r\n", 
+		printf("\"%s\" length: %zd \r\n",
 				argv[1], strlen(argv[1]));
 
 		return foo(argv[1]);

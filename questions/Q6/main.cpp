@@ -1,4 +1,4 @@
-// Q6: The following function allocates memory but not release them. 
+// Q6: The following function allocates memory but not release them.
 // Please write the release memory statements
 
 #include <iostream>
