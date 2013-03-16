@@ -1,5 +1,4 @@
 
-#include <string.h>
 #include <string>
 #include <iostream>
 
@@ -25,7 +24,7 @@ int main()
 			mp++;
 			sp++;
 		}
-		if (sp == 0)
+		if (sp < subString.length())
 			cout << mainString[i];
 		else
 			i = i + sp - 1;
