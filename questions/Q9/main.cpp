@@ -1,4 +1,7 @@
 // Q9: Write a C program to compute the max depth in a Binary tree
+// Hint: Recursively calculate height of left and right subtrees of a node and
+// assign height to the node as max of the heights of two children plus 1
+// Ref: http://www.geeksforgeeks.org/write-a-c-program-to-find-the-maximum-depth-or-height-of-a-tree/
 
 #include "Node.h"
 #include <iostream>
