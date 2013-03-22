@@ -5,9 +5,9 @@
 
 void removeChar(char *str, char garbage) {
 
-	char *src, *dst;
-	for (src = dst = str; *src != '\0'; src++) {
-		*dst = *src;
+	char *dst;
+	for (dst = str; *str!= '\0'; str++) {
+		*dst = *str;
 		if (*dst != garbage) dst++;
 	}
 	*dst = '\0';
@@ -21,6 +21,6 @@ int main()
 	removeChar(str, 'b');
 	printf("%s", str);
 	free(str);
+
 	return 0;
 }
-
