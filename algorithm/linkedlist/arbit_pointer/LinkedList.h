@@ -24,7 +24,7 @@ private:
 	void destroyList();
 	void assignRandom();
 	Node *mRoot;
-	Node *mCopyRoot;
+	Node *mCopy;
 	int mSize;
 	vector<Node *> vec;
 };

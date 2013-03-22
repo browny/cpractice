@@ -6,13 +6,13 @@ using namespace std;
 
 #define RANDOM (rand() % 100) + 1
 
-LinkedList::LinkedList() : mSize(5), mRoot(NULL), mCopyRoot(NULL)
+LinkedList::LinkedList() : mSize(5), mRoot(NULL), mCopy(NULL)
 {
     createList();
     assignRandom();
 }
 
-LinkedList::LinkedList(int n) : mSize(n), mRoot(NULL), mCopyRoot(NULL)
+LinkedList::LinkedList(int n) : mSize(n), mRoot(NULL), mCopy(NULL)
 {
     createList();
     assignRandom();
@@ -50,16 +50,15 @@ void LinkedList::destroyList()
         mRoot = mRoot->next;
     }
 
-    while (mCopyRoot) {
-        delete mCopyRoot;
-        mCopyRoot = mCopyRoot->next;
+    while (mCopy) {
+        delete mCopy;
+        mCopy = mCopy->next;
     }
 
 }
 
 void LinkedList::assignRandom()
 {
-    /* TODO: there are bugs if using a random array
     int sum[mSize];
     for (int i = 0; i < mSize; i++) {
         sum[i] = i;
@@ -73,22 +72,8 @@ void LinkedList::assignRandom()
         swap(sum[index_1], sum[index_2]);
     }
     for (int i = 0; i < mSize; i++) {
-        //cout << sum[i] << endl;
         vec[i]->arbit = vec[sum[i]];
     }
-    */
-
-    /* TODO: hard codes for now*/
-    //for (int i = 0; i < mSize; i++) {
-        //cout << sum[i] << endl;
-        //  vec[i]->arbit = vec[sum[i - ]];
-    //}
-    vec[0]->arbit = vec[4];
-    vec[1]->arbit = vec[3];
-    vec[2]->arbit = vec[0];
-    vec[3]->arbit = vec[1];
-    vec[4]->arbit = vec[2];
-
 }
 
 void LinkedList::printList(bool isArbit)
@@ -144,7 +129,8 @@ Node* LinkedList::copy()
             copy = copy->next;
         }
     }
-    return newHead;
+    mCopy = newHead;
+    return mCopy;
 }
 
 
