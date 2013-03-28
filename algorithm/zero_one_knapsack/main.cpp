@@ -44,6 +44,26 @@ int cache_knapsack(int *p, int *v, int n, int aW, int *cache)
     return max_value;
 }
 
+int iterative_knapsack(int *p, int *v, int n, int aW)
+{
+    int k[n + 1][aW + 1];
+    for (int i = 0; i <= n; i++)
+        for (int j = 0; j <= aW; j++)
+            k[i][j] = 0;
+
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= aW; j++) {
+            if ( i == 0 || j == 0)
+                k[i][j] = 0;
+            else if (p[i - 1] > j)
+                k[i][j] = k[i - 1][j];
+            else
+                k[i][j] = max(k[i - 1][j], v[i - 1] + k[i - 1][j - p[i - 1]]);
+        }
+    }
+
+    return k[n][aW];
+}
 int main(int argc, char **argv)
 {
     int V[] = { 60, 100, 120};
@@ -58,4 +78,6 @@ int main(int argc, char **argv)
     memset(memo, -1, sizeof(memo));
     max = cache_knapsack(P, V, size, maxP, memo);
     cout << "MAX = " << max << " cache function call count = " << count_cache << endl;
+    max = iterative_knapsack(P, V, size, maxP);
+    cout << "iterative MAX = " << max << endl;
 }
