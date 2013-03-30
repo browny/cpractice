@@ -31,11 +31,15 @@ int main() {
 
 	// Input to a sorted vector
 	int size, sum;
+	cout << "input size and sum" << endl;
+	cout << "ex: 3 11" << endl;
 	cin >> size >> sum;
+
+	cout << "input coins" << endl;
+	cout << "ex: 1 3 5" << endl;
 
 	int* arr;
 	arr = new int[size];
-
 	for (int i = 0; i < size; i++) {
 		int c;
 		cin >> c;
