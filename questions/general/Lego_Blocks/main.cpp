@@ -7,6 +7,7 @@
  *  structure. A solid structure means that it should not be possible to separate 
  *  the wall along any vertical line without cutting any lego block used to build the wall. 
  *  The blocks can only be placed horizontally. In how many ways can the wall be built?
+ *
  *  Ref: http://www.hackerrank.com/challenges/lego-blocks
 */
 
@@ -22,20 +23,26 @@ int lego[] = {1, 2, 3};
 vector<int> subset(lego, lego+3);
 
 void loop(int n) {
+
 	if (n > 0) {
-		vector<int> arr(subset.size(), n);
 		for (int i = 0; i < subset.size(); i++) {
-			arr[i] = arr[i] - subset[i];
-			if (arr[i] == 0)
+			int remains = n - subset[i];
+			if (remains == 0) {
 				cnt++;
-			loop(arr[i]);
+			} else if (remains < 0)
+
+			loop(n);
 		}
 	} else {
 		return;
 	}
 }
 
+
+
+
 int main() {
+
 	int M = 4;
 	int M1 = loop(1);
 	int M2 = loop(2);
