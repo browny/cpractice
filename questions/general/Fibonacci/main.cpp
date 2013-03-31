@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int fib(int n)
@@ -25,6 +24,7 @@ int fib_loop(int n)
     }
     return fib;
 }
+
 int main(int argc, char** atgv)
 {
     int n = 10;

@@ -10,7 +10,7 @@
  *  Sample Output #00:
  *
  *  3
-*/
+ */
 
 
 #include <cmath>
@@ -22,52 +22,52 @@ using namespace std;
 
 int main() {
 
-	// Input to a sorted vector
-	int size, diff;
-	cin >> size >> diff;
+    // Input to a sorted vector
+    int size, diff;
+    cin >> size >> diff;
 
-	int* arr;
-	arr = new int[size];
+    int* arr;
+    arr = new int[size];
 
-	for (int i = 0; i < size; i++) {
-		int c;
-		cin >> c;
-		arr[i] = c;
-	}
-	vector<int> vecArr(arr, arr+size);
-	sort(vecArr.begin(), vecArr.end());
-	//vecArr.erase( unique(vecArr.begin(), vecArr.end()), vecArr.end() );
+    for (int i = 0; i < size; i++) {
+        int c;
+        cin >> c;
+        arr[i] = c;
+    }
+    vector<int> vecArr(arr, arr+size);
+    sort(vecArr.begin(), vecArr.end());
+    //vecArr.erase( unique(vecArr.begin(), vecArr.end()), vecArr.end() );
 
-	// Get the pair
-	int cnt = 0;
-	int tmp = 0; // use tmp to avoid repeated computation for the same value
-	bool tmpResult = false;
+    // Get the pair
+    int cnt = 0;
+    int tmp = 0; // use tmp to avoid repeated computation for the same value
+    bool tmpResult = false;
 
-	for (int i = 0; i < vecArr.size() -1; i++) {
-		int head = vecArr[i];
-		if (head == tmp) {
-			// use buffered result
-			if (tmpResult == true) {
-				cnt++;
-			}
-		} else {
-			tmp = head;
-			tmpResult = false;
+    for (int i = 0; i < vecArr.size() -1; i++) {
+        int head = vecArr[i];
+        if (head == tmp) {
+            // use buffered result
+            if (tmpResult == true) {
+                cnt++;
+            }
+        } else {
+            tmp = head;
+            tmpResult = false;
 
-			for (int j = i+1; j < vecArr.size(); j++) {
-				if (vecArr[j] - head > diff)
-					break;
-				if (abs(head-vecArr[j]) == diff) {
-					cnt++;
-					tmpResult = true;
-				}
-			}
-		}
-	}
-	delete[] arr;
+            for (int j = i+1; j < vecArr.size(); j++) {
+                if (vecArr[j] - head > diff)
+                    break;
+                if (abs(head-vecArr[j]) == diff) {
+                    cnt++;
+                    tmpResult = true;
+                }
+            }
+        }
+    }
+    delete[] arr;
 
-	// Output
-	cout << cnt << endl;
+    // Output
+    cout << cnt << endl;
 
-	return 0;
+    return 0;
 }

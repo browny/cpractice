@@ -9,7 +9,7 @@
  *  The blocks can only be placed horizontally. In how many ways can the wall be built?
  *
  *  Ref: http://www.hackerrank.com/challenges/lego-blocks
-*/
+ */
 
 #include <cmath>
 #include <cstdio>
@@ -24,18 +24,18 @@ vector<int> subset(lego, lego+3);
 
 void loop(int n) {
 
-	if (n > 0) {
-		for (int i = 0; i < subset.size(); i++) {
-			int remains = n - subset[i];
-			if (remains == 0) {
-				cnt++;
-			} else if (remains < 0)
+    if (n > 0) {
+        for (int i = 0; i < subset.size(); i++) {
+            int remains = n - subset[i];
+            if (remains == 0) {
+                cnt++;
+            } else if (remains < 0)
 
-			loop(n);
-		}
-	} else {
-		return;
-	}
+                loop(n);
+        }
+    } else {
+        return;
+    }
 }
 
 
@@ -43,12 +43,12 @@ void loop(int n) {
 
 int main() {
 
-	int M = 4;
-	int M1 = loop(1);
-	int M2 = loop(2);
-	int M3 = loop(3);
+    int M = 4;
+    int M1 = loop(1);
+    int M2 = loop(2);
+    int M3 = loop(3);
 
-	cout << M1 << " " << M2 << " " << M3 << endl;
+    cout << M1 << " " << M2 << " " << M3 << endl;
 
-	return 0;
+    return 0;
 }
