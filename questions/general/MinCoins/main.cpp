@@ -61,7 +61,15 @@ int minCoins(vector<int> S, int sum) {
 		}
 	}
 
-    return count[setSize][sum];
+	// uncomment this code to print table
+	for (int i = 0; i <= setSize; i++)
+	{
+		for (int j = 0; j <= sum; j++)
+			printf ("%4d", count[i][j]);
+		printf("\n");
+	}
+
+	return count[setSize][sum];
 }
 
 
