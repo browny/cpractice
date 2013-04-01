@@ -2,6 +2,7 @@
 #include <cmath>
 using namespace std;
 
+/*
 int getIntergerComplement(int n)
 {
     int bits[32] = {0};
@@ -21,6 +22,24 @@ int getIntergerComplement(int n)
     }
 
     return n;
+}
+*/
+
+
+int getIntergerComplement(int n)
+{
+    int len = 0, tmp = n;
+
+    if (tmp == 0)
+        return 1;
+
+    while (tmp > 0) {
+        len++;
+        tmp >>= 1;
+    }
+
+    int two_com = pow(2, len) - n;
+    return two_com - 1;
 }
 
 int main(int argc, char** argv)
