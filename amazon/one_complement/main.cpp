@@ -5,23 +5,15 @@ using namespace std;
 /*
 int getIntergerComplement(int n)
 {
-    int bits[32] = {0};
+    int tmp = n;
     int len = 0;
 
-    if (n == 0)
-        return 1;
-
-    while (n > 0) {
-        bits[len++] = n % 2 ? 0 : 1;
-        n >>= 1;
+    while (tmp > 0) {
+        tmp >>= 1;
+        len++;
     }
 
-    int result = 0;
-    for (int i = len - 1; i >= 0; i--) {
-        n = n + bits[i] * pow(2, i);
-    }
-
-    return n;
+    return (((2 << (len-1)) - 1) ^ n);
 }
 */
 
@@ -38,7 +30,7 @@ int getIntergerComplement(int n)
         tmp >>= 1;
     }
 
-    int two_com = pow(2, len) - n;
+    int two_com = pow((double)2, (double)len) - n;
     return two_com - 1;
 }
 
