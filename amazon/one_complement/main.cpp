@@ -13,7 +13,7 @@ int getIntergerComplement(int n)
         len++;
     }
 
-    return (((2 << (len-1)) - 1) ^ n);
+    return n ? (((1 << len) - 1) ^ n) : 1;
 }
 */
 
