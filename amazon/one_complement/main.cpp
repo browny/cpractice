@@ -38,7 +38,7 @@ int getIntergerComplement(int n)
         tmp >>= 1;
     }
 
-    int two_com = pow(2, len) - n;
+    int two_com = (1 << len) - n;
     return two_com - 1;
 }
 
