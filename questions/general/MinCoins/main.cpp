@@ -1,6 +1,9 @@
 #include <cmath>
 #include <vector>
 #include <iostream>
+#include <algorithm>
+#include <stdio.h>
+#include <stdlib.h>
 using namespace std;
 
 // greedy
