@@ -38,6 +38,14 @@ int minCoins(vector<int> S, int sum) {
     int setSize = S.size();
     int count[setSize+1][sum+1];
 
+    /*
+     * cost func:
+     * c(n, sum): 用第1種到第n種錢幣湊得價位sum，最少所需要的錢幣數
+     * c(n, sum) = min( c(n-1, sum) , c(n, sum-S[n]) + 1 )
+     *                ^^^^^^^^^   ^^^^^^^^^^^^^^^^
+     *                don't take     take S[n]
+     */
+
     // For sum = 0, do not need any coins
     for (int i = 0; i < setSize+1; i++)
         count[i][0] = 0;
@@ -47,12 +55,6 @@ int minCoins(vector<int> S, int sum) {
     for (int j = 1; j < sum+1; j++)
         count[0][j] = -1;
 
-    /*
-     * cost func:
-     * c(n, m) = min( c(n-1, m) , c(n, m-M[n]) + 1 )
-     *                ^^^^^^^^^   ^^^^^^^^^^^^^^^^
-     *                don't take     take M[n]
-     */
     for (int i = 1; i < setSize+1; i++) {
         for (int j = 1; j < sum+1; j++) {
             if ((j - S[i-1]) >= 0) {
