@@ -36,8 +36,17 @@ int minCoins_greedy(vector<int> a, int sum) {
 int get_min (int a, int b) {
     if (a == -1 && b == -1)
         return -1;
-    else
-        return (a == -1) ? (b+1) : (min(a, b)+1);
+    else {
+        if (a == -1)
+            return b+1;
+        else {
+            if (a <= b)
+                return a;
+            else
+                return b+1;
+        }
+    }
+    //return (a == -1) ? (b+1) : (min(a, b)+1);
 }
 
 int minCoins(vector<int> S, int sum) {
