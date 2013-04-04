@@ -32,7 +32,14 @@ int minCoins_greedy(vector<int> a, int sum) {
 }
 
 // dynamic programming
-#define MIN(a, b) ((a) == -1) ? (b) : min((a),(b));
+//#define MIN(a, b) ((a) == -1) ? (b) : min((a),(b));
+int get_min (int a, int b) {
+    if (a == -1 && b == -1)
+        return -1;
+    else
+        return (a == -1) ? (b+1) : (min(a, b)+1);
+}
+
 int minCoins(vector<int> S, int sum) {
 
     int setSize = S.size();
@@ -58,7 +65,7 @@ int minCoins(vector<int> S, int sum) {
     for (int i = 1; i < setSize+1; i++) {
         for (int j = 1; j < sum+1; j++) {
             if ((j - S[i-1]) >= 0) {
-                count[i][j] = MIN(count[i-1][j], count[i][j-S[i-1]] + 1);
+                count[i][j] = get_min(count[i-1][j], count[i][j-S[i-1]]);
             }
             else
                 count[i][j] = count[i-1][j];
