@@ -6,6 +6,8 @@
 #include <stdlib.h>
 using namespace std;
 
+#define DEBUG 0
+
 // greedy
 int minCoins_greedy(vector<int> a, int sum) {
 
@@ -31,28 +33,10 @@ int minCoins_greedy(vector<int> a, int sum) {
     return -1;
 }
 
-// dynamic programming
-//#define MIN(a, b) ((a) == -1) ? (b) : min((a),(b));
-int get_min (int a, int b) {
-    if (a == -1 && b == -1)
-        return -1;
-    else {
-        if (a == -1)
-            return b+1;
-        else {
-            if (a <= b)
-                return a;
-            else
-                return b+1;
-        }
-    }
-    //return (a == -1) ? (b+1) : (min(a, b)+1);
-}
-
 int minCoins(vector<int> S, int sum) {
 
     int setSize = S.size();
-    int count[setSize+1][sum+1];
+    int count[setSize + 1][sum + 1];
 
     /*
      * cost func:
@@ -63,24 +47,31 @@ int minCoins(vector<int> S, int sum) {
      */
 
     // For sum = 0, do not need any coins
-    for (int i = 0; i < setSize+1; i++)
+    for (int i = 0; i < setSize + 1; i++)
         count[i][0] = 0;
 
     // For empty set, it is impossible to sum to >0
     // use -1 represents fail
-    for (int j = 1; j < sum+1; j++)
-        count[0][j] = -1;
+    for (int j = 1; j < sum + 1; j++)
+        count[0][j] = 0xffff;
 
-    for (int i = 1; i < setSize+1; i++) {
-        for (int j = 1; j < sum+1; j++) {
-            if ((j - S[i-1]) >= 0) {
-                count[i][j] = get_min(count[i-1][j], count[i][j-S[i-1]]);
+    //To make sure count[0][0] = 0
+    count[0][0] = 0;
+
+    for (int i = 1; i < setSize + 1; i++) {
+        for (int j = 1; j < sum + 1; j++) {
+            int cur_sum = j;
+            int cur_coin = S[i - 1];
+            int diff = cur_sum - cur_coin;
+            if (diff >= 0) {
+                count[i][j] = min(count[i - 1][j], count[i][diff] + 1);
             }
             else
-                count[i][j] = count[i-1][j];
+                count[i][j] = count[i - 1][j];
         }
     }
 
+#if DEBUG
     // uncomment this code to print table
     for (int i = 0; i <= setSize; i++)
     {
@@ -88,8 +79,12 @@ int minCoins(vector<int> S, int sum) {
             printf ("%4d", count[i][j]);
         printf("\n");
     }
+#endif
 
-    return count[setSize][sum];
+    if (count[setSize][sum] == 0xffff)
+        return -1;
+    else
+        return count[setSize][sum];
 }
 
 
